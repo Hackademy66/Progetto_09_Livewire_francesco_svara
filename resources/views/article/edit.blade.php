@@ -5,7 +5,7 @@
             <div class="col-12 col-md-8">
                 
                 <!-- Form e COMPO Livewire -->
-                @livewire('article-edit-form')
+                @livewire('article-edit-form', ['article' => $article])
             </div>
         </div>
     </div>

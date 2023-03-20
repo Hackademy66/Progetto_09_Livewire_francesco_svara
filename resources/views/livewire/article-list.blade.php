@@ -1,4 +1,9 @@
 <div>
+    @if(session('articleDestroyed'))
+        <div class="alert alert-success">
+            {{(session('articleDestroyed'))}}
+        </div>
+    @endif
     <table class="table table-striped border table-hover">
         <thead>
             <tr>
@@ -15,8 +20,8 @@
                     <td>{{$article->title}}</td>
                     <td>{{$article->created_at}}</td>
                     <td>
-                        <button class="btn btn-warning">Modifica</button>
-                        <button class="btn btn-danger">Cancella</button>
+                        <a href="{{route('article.edit', compact('article'))}}" class="btn btn-warning">Modifica</a>
+                        <button class="btn btn-danger"wire:click="destroy({{$article}})">Cancella</button>
                     </td>
                 </tr>
             @endforeach
